@@ -37,6 +37,8 @@ class AccountController extends Controller
 
     public function update($id, Request $request)
     {
+        $request['password'] = md5($request['password']);
+        
         $account = Account::findOrFail($id);
         $account->update($request->all());
 

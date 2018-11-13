@@ -64,3 +64,63 @@ Route::post('hospitals', 'HospitalController@create');
 Route::put('hospitals/{ref}', 'HospitalController@update');
 
 Route::delete('hospitals/{ref}', 'HospitalController@delete');
+
+// Hospital Request Routes
+
+Route::get('requests', 'HospitalRequestController@showAll');
+
+Route::get('requests/{id}', 'HospitalRequestController@show');
+
+Route::post('requests', 'HospitalRequestController@create');
+
+Route::put('requests/{id}', 'HospitalRequestController@update');
+
+Route::delete('requests/{id}', 'HospitalRequestController@delete');
+
+// Purchases Routes
+
+Route::get('purchases', 'PurchaseController@showAll');
+
+Route::get('purchases/{id}', 'PurchaseController@show');
+
+Route::post('purchases', 'PurchaseController@create');
+
+Route::put('purchases/{id}', 'PurchaseController@update');
+
+Route::delete('purchases/{id}', 'PurchaseController@delete');
+
+// Sales Routes
+
+Route::get('sales', 'SaleController@showAll');
+
+Route::get('sales/{id}', 'SaleController@show');
+
+Route::post('sales', 'SaleController@create');
+
+Route::put('sales/{id}', 'SaleController@update');
+
+Route::delete('sales/{id}', 'SaleController@delete');
+
+// Request Routes
+
+Route::get('seekers', 'RequestController@showAll');
+
+Route::get('seekers/{id}', 'RequestController@show');
+
+Route::post('seekers', 'RequestController@create');
+
+Route::put('seekers/{id}', 'RequestController@update');
+
+Route::delete('seekers/{id}', 'RequestController@delete');
+
+// User Routes
+
+Route::get('users', 'UserController@showAll');
+
+Route::get('users/{id}', 'UserController@show');
+
+Route::post('users', 'UserController@create');
+
+Route::put('users/{id}', 'UserController@update');
+
+Route::delete('users/{id}', 'UserController@delete');
