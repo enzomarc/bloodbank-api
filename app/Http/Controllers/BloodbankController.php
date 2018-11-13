@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Bloodbank;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
 class BloodbankController extends Controller
 {
@@ -14,7 +13,7 @@ class BloodbankController extends Controller
         return response()->json(Bloodbank::all());
     }
 
-    public function showBloodbank($ref)
+    public function show($ref)
     {
         return response()->json(Bloodbank::find($ref));
     }
@@ -22,28 +21,25 @@ class BloodbankController extends Controller
     public function create(Request $request)
     {
         $this->validate($request, [
-            'ref_hospital' => 'required',
-            'username' => 'required|unique:accounts',
-            'password' => 'required',
-            'account_type' => 'required'
+            'ref_hospital' => 'required'
         ]);
 
-        $account = Account::create($request->all());
+        $bloodbank = Bloodbank::create($request->all());
 
-        return response()->json($account, 201);
+        return response()->json($bloodbank, 201);
     }
 
-    public function update($id, Request $request)
+    public function update($ref, Request $request)
     {
-        $account = Account::findOrFail($id);
-        $account->update($request->all());
+        $bloodbank = Bloodbank::findOrFail($ref);
+        $bloodbank->update($request->all());
 
-        return response()->json($account, 200);
+        return response()->json($bloodbank, 200);
     }
 
-    public function delete($id)
+    public function delete($ref)
     {
-        Account::findOrFail($id)->delete();
+        Bloodbank::findOrFail($ref)->delete();
 
         return response()->json('Deleted Successfully', 200);
     }
