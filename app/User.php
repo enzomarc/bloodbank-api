@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Request extends Model
+class User extends Model
 {
     protected $fillable = [
         'name', 'phone', 'password', 'bloodgroup', 'birthdate', 'gender', 'city', 'profile_img'

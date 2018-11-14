@@ -14,113 +14,118 @@ use Illuminate\Support\Facades\Route;
 */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+	return $router->app->version();
 });
 
-// Account Routes
+Route::group(['middleware' => 'auth'], function ()
+{
+	
+	// Account Routes
 
-Route::get('accounts', 'AccountController@showAll');
+	Route::get('accounts', 'AccountController@showAll');
 
-Route::get('accounts/{id}', 'AccountController@show');
+	Route::get('accounts/{id}', 'AccountController@show');
 
-Route::post('accounts', 'AccountController@create');
+	Route::post('accounts', 'AccountController@create');
 
-Route::put('accounts/{id}', 'AccountController@update');
+	Route::put('accounts/{id}', 'AccountController@update');
 
-Route::delete('accounts/{id}', 'AccountController@delete');
+	Route::delete('accounts/{id}', 'AccountController@delete');
 
-// Bloodbank Routes
+	// Bloodbank Routes
 
-Route::get('bloodbanks', 'BloodbankController@showAll');
+	Route::get('bloodbanks', 'BloodbankController@showAll');
 
-Route::get('bloodbanks/{ref}', 'BloodbankController@show');
+	Route::get('bloodbanks/{ref}', 'BloodbankController@show');
 
-Route::post('bloodbanks', 'BloodbankController@create');
+	Route::post('bloodbanks', 'BloodbankController@create');
 
-Route::put('bloodbanks/{ref}', 'BloodbankController@update');
+	Route::put('bloodbanks/{ref}', 'BloodbankController@update');
 
-Route::delete('bloodbanks/{ref}', 'BloodbankController@delete');
+	Route::delete('bloodbanks/{ref}', 'BloodbankController@delete');
 
-// Donation Routes
+	// Donation Routes
 
-Route::get('donations', 'DonationController@showAll');
+	Route::get('donations', 'DonationController@showAll');
 
-Route::get('donations/{id}', 'DonationController@show');
+	Route::get('donations/{id}', 'DonationController@show');
 
-Route::post('donations', 'DonationController@create');
+	Route::post('donations', 'DonationController@create');
 
-Route::put('donations/{id}', 'DonationController@update');
+	Route::put('donations/{id}', 'DonationController@update');
 
-Route::delete('donations/{id}', 'DonationController@delete');
+	Route::delete('donations/{id}', 'DonationController@delete');
 
-// Hospital Routes
+	// Hospital Routes
 
-Route::get('hospitals', 'HospitalController@showAll');
+	Route::get('hospitals', 'HospitalController@showAll');
 
-Route::get('hospitals/{ref}', 'HospitalController@show');
+	Route::get('hospitals/{ref}', 'HospitalController@show');
 
-Route::post('hospitals', 'HospitalController@create');
+	Route::post('hospitals', 'HospitalController@create');
 
-Route::put('hospitals/{ref}', 'HospitalController@update');
+	Route::put('hospitals/{ref}', 'HospitalController@update');
 
-Route::delete('hospitals/{ref}', 'HospitalController@delete');
+	Route::delete('hospitals/{ref}', 'HospitalController@delete');
 
-// Hospital Request Routes
+	// Hospital Request Routes
 
-Route::get('requests', 'HospitalRequestController@showAll');
+	Route::get('requests', 'HospitalRequestController@showAll');
 
-Route::get('requests/{id}', 'HospitalRequestController@show');
+	Route::get('requests/{id}', 'HospitalRequestController@show');
 
-Route::post('requests', 'HospitalRequestController@create');
+	Route::post('requests', 'HospitalRequestController@create');
 
-Route::put('requests/{id}', 'HospitalRequestController@update');
+	Route::put('requests/{id}', 'HospitalRequestController@update');
 
-Route::delete('requests/{id}', 'HospitalRequestController@delete');
+	Route::delete('requests/{id}', 'HospitalRequestController@delete');
 
-// Purchases Routes
+	// Purchases Routes
 
-Route::get('purchases', 'PurchaseController@showAll');
+	Route::get('purchases', 'PurchaseController@showAll');
 
-Route::get('purchases/{id}', 'PurchaseController@show');
+	Route::get('purchases/{id}', 'PurchaseController@show');
 
-Route::post('purchases', 'PurchaseController@create');
+	Route::post('purchases', 'PurchaseController@create');
 
-Route::put('purchases/{id}', 'PurchaseController@update');
+	Route::put('purchases/{id}', 'PurchaseController@update');
 
-Route::delete('purchases/{id}', 'PurchaseController@delete');
+	Route::delete('purchases/{id}', 'PurchaseController@delete');
 
-// Sales Routes
+	// Sales Routes
 
-Route::get('sales', 'SaleController@showAll');
+	Route::get('sales', 'SaleController@showAll');
 
-Route::get('sales/{id}', 'SaleController@show');
+	Route::get('sales/{id}', 'SaleController@show');
 
-Route::post('sales', 'SaleController@create');
+	Route::post('sales', 'SaleController@create');
 
-Route::put('sales/{id}', 'SaleController@update');
+	Route::put('sales/{id}', 'SaleController@update');
 
-Route::delete('sales/{id}', 'SaleController@delete');
+	Route::delete('sales/{id}', 'SaleController@delete');
 
-// Request Routes
+	// Request Routes
 
-Route::get('seekers', 'RequestController@showAll');
+	Route::get('seekers', 'RequestController@showAll');
 
-Route::get('seekers/{id}', 'RequestController@show');
+	Route::get('seekers/{id}', 'RequestController@show');
 
-Route::post('seekers', 'RequestController@create');
+	Route::post('seekers', 'RequestController@create');
 
-Route::put('seekers/{id}', 'RequestController@update');
+	Route::put('seekers/{id}', 'RequestController@update');
 
-Route::delete('seekers/{id}', 'RequestController@delete');
+	Route::delete('seekers/{id}', 'RequestController@delete');
 
-// User Routes
+	// User Routes
 
-Route::get('users', 'UserController@showAll');
+	Route::get('users', 'UserController@showAll');
 
-Route::get('users/{id}', 'UserController@show');
+	Route::get('users/{id}', 'UserController@show');
 
-Route::post('users', 'UserController@create');
+	Route::post('users', 'UserController@create');
 
-Route::put('users/{id}', 'UserController@update');
+	Route::put('users/{id}', 'UserController@update');
 
-Route::delete('users/{id}', 'UserController@delete');
+	Route::delete('users/{id}', 'UserController@delete');
+
+});
